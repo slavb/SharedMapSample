@@ -6,7 +6,7 @@ using Windows.UI.Xaml.Controls;
 using System.Diagnostics;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml;
-using Bing.Maps;
+//using Bing.Maps;
 
 using NuclearPlants;
 
