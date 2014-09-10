@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using Windows.UI.Xaml.Controls;
 using Windows.Devices.Geolocation;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using Windows.UI.Xaml.Controls.Maps;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Shapes;
 using Windows.UI.Xaml;
-using System;
+//using System;
 using Windows.UI.Xaml.Media.Imaging;
 #elif WINDOWS_APP
 using Bing.Maps;
@@ -242,13 +243,21 @@ namespace SharedMapSample
         public void AddPushpin(BasicGeoposition location, string text)
         {
             #if WINDOWS_APP
+            var res = App.Current.Resources["WinDictionary"] as Windows.UI.Xaml.ResourceDictionary;
+            //var template = (ControlTemplate)res["CutomPushpinTemplate"];
+            var style = res["PushPinStyle"] as Windows.UI.Xaml.Style;
+
             var pin = new Pushpin()
             {
-                Text = text
+                Text = text,
+                //Template = template,
+                Style = style,                
             };
+            pin.Tapped += pushpinTapped;
+
             MapLayer.SetPosition(pin, location.ToLocation());
             _pinLayer.Children.Add(pin);
-            #elif WINDOWS_PHONE_APP
+#elif WINDOWS_PHONE_APP
             var pin = new Grid()
             {
                 Width = 24,
@@ -277,6 +286,16 @@ namespace SharedMapSample
             MapControl.SetLocation(pin, new Geopoint(location));
             _map.Children.Add(pin);
             #endif
+        }
+
+        private async void pushpinTapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+#if WINDOWS_APP
+            Windows.UI.Popups.MessageDialog dialog = new Windows.UI.Popups.MessageDialog("Hello from Seattle.");
+            await dialog.ShowAsync();
+#elif WINDOWS_PHONE_APP
+
+#endif
         }
 
         public void AddPolyline(List<BasicGeoposition> locations, Color strokeColor, double strokeThickness)

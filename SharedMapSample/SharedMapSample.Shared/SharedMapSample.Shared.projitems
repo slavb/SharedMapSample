@@ -34,9 +34,13 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Assets\nuclear.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\nuclear@2x.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\NuclearData.db">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Assets\nuclear_s.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\nuclear_s@2x.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\PinImage.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\topographicMap.gif" />
   </ItemGroup>

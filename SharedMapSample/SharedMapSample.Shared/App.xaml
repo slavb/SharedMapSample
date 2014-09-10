@@ -5,7 +5,19 @@
     xmlns:local="using:SharedMapSample">
     
     <Application.Resources>
+
         <x:String x:Key="BingMapsKey">AqEzsrKJB4HFK931TRqjkZZov58s9NglEPjCOgesJ3R899UUFWajKyBmIJDQXTC3</x:String>
         <x:String x:Key="MapServiceToken">42c4face-3ce0-4b08-9af0-845441b6072a</x:String>
+
+        <ResourceDictionary x:Key="WinDictionary" Source="Dictionary1.xaml"/>
+        
+        <!--<ResourceDictionary x:Key="MainDictionary">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary1.xaml"/>
+                --><!-- etc. --><!--
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>-->
+
     </Application.Resources>
+
 </Application>
